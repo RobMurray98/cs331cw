@@ -1,5 +1,5 @@
-# cs331cw
-Source code for three-layer MLP for the XOR problem.
+# CS331 Assignment
+Source code for a three-layer MLP for the XOR problem.
 
 ## ann.py
 
@@ -9,4 +9,4 @@ When executed as a script using `python ann.py`, trains an MLP using fixed noisy
 
 ## main.py
 
-When executed as a script using `python ann.py`, trains an MLP with 2, 4 and 8 hidden layer nodes and 16, 32 and 64 noisy vectors in the training data, displaying and saving plots for each of the 9 cases.
+When executed as a script using `python main.py`, trains an MLP with 2, 4 and 8 hidden layer nodes and 16, 32 and 64 noisy vectors in the training data, displaying and saving plots for each of the 9 cases.
