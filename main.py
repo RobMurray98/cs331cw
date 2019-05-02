@@ -25,19 +25,19 @@ def rand_input(n):
 
 
 if __name__ == "__main__":
-    test_x = np.array([[0, 0],
-                       [0, 1],
-                       [1, 0],
-                       [1, 1]])
-    test_y = np.array([0, 1, 1, 0])
+    test_x = rand_input(8)
+    test_y = np.repeat([0, 1, 1, 0], 8)
     for test_size in [4, 8, 16]:
         for hidden_nodes in [2, 4, 8]:
             x = rand_input(test_size)
             y = np.repeat([0, 1, 1, 0], test_size)
             mlp = XOR_MLP(hidden_nodes)
             mlp.train(x, y, n=500000, rate=0.1)
-            for e in test_x:
-                print(e, mlp.predict(e))
+            av_err = 0
+            for i in range(len(test_x)):
+                av_err += abs(mlp.predict(test_x[i]) - test_y[i])
+            av_err = av_err / len(test_x)
+            print("AVERAGE ERROR: " + str(av_err))
             z = []
             for i in np.arange(0, 1.01, 0.05):
                 t = []
@@ -48,8 +48,8 @@ if __name__ == "__main__":
             fig = p.figure(figsize=(14, 6))
             gs = gridspec.GridSpec(1, 2, width_ratios=[1, 1])
             p.subplot(gs[0])
-            p.title("XOR Prediction - " + str(test_size*4) + " training vectors, " + str(hidden_nodes) +
-                    " hidden nodes")
+            p.title("XOR Prediction - " + str(test_size*4) +
+                    " training vectors, " + str(hidden_nodes) + " hidden nodes")
             p.pcolormesh(predictions, cmap='gray', vmin=0.0, vmax=1.0)
             p.colorbar()
             p.subplot(gs[1])

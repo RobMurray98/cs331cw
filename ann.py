@@ -34,7 +34,8 @@ class XOR_MLP:
     """
     MLP class specifically for the XOR problem.
     The following website was used as a reference for implementation:
-    https://www.bogotobogo.com/python/python_Neural_Networks_Backpropagation_for_XOR_using_one_hidden_layer.php
+    https://www.bogotobogo.com/python/
+        python_Neural_Networks_Backpropagation_for_XOR_using_one_hidden_layer.php
     """
 
     def __init__(self, n):
